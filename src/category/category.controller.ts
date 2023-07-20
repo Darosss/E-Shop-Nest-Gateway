@@ -20,7 +20,7 @@ import {
   CreateCategoryRequest,
   FindAllCategoriesResponse,
   UpdateCategoryRequest,
-} from './pb/category.pb';
+} from '../pb/category.pb';
 import { AuthGuard } from '../auth/guard/auth.guard';
 
 @Controller('category')

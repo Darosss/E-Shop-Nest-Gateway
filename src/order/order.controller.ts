@@ -13,7 +13,7 @@ import {
   OrderServiceClient,
   ORDER_SERVICE_NAME,
   CreateOrderRequest,
-} from './pb/order.pb';
+} from '../pb/order.pb';
 import { AuthGuard } from '../auth/guard/auth.guard';
 import { Request } from 'express';
 

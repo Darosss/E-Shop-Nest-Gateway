@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { ORDER_SERVICE_NAME, ORDER_PACKAGE_NAME } from './pb/order.pb';
+import { ORDER_SERVICE_NAME, ORDER_PACKAGE_NAME } from '../pb/order.pb';
 import { OrderController } from './order.controller';
 
 @Module({

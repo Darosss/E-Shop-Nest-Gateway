@@ -15,7 +15,7 @@ import {
   AUTH_SERVICE_NAME,
   LoginRequest,
   LoginResponse,
-} from './pb/auth.pb';
+} from '../pb/auth.pb';
 
 @Controller('auth')
 export class AuthController implements OnModuleInit {

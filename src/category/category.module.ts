@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { CATEGORY_PACKAGE_NAME, CATEGORY_SERVICE_NAME } from './pb/category.pb';
+import {
+  CATEGORY_PACKAGE_NAME,
+  CATEGORY_SERVICE_NAME,
+} from '../pb/category.pb';
 import { CategoryController } from './category.controller';
 
 @Module({

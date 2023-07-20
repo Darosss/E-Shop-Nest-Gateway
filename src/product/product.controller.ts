@@ -12,10 +12,10 @@ import {
 import { ClientGrpc } from '@nestjs/microservices';
 import { Observable } from 'rxjs';
 import {
-  FindOneResponse,
+  FindOneProductResponse,
   ProductServiceClient,
   PRODUCT_SERVICE_NAME,
-  CreateProductResponse,
+  ProductOperationResponse,
   CreateProductRequest,
 } from './pb/product.pb';
 import { AuthGuard } from '../auth/guard/auth.guard';
@@ -36,7 +36,7 @@ export class ProductController implements OnModuleInit {
   @UseGuards(AuthGuard)
   private async createProduct(
     @Body() body: CreateProductRequest,
-  ): Promise<Observable<CreateProductResponse>> {
+  ): Promise<Observable<ProductOperationResponse>> {
     return this.svc.createProduct(body);
   }
 
@@ -44,7 +44,7 @@ export class ProductController implements OnModuleInit {
   @UseGuards(AuthGuard)
   private async findOne(
     @Param('id', ParseIntPipe) id: number,
-  ): Promise<Observable<FindOneResponse>> {
+  ): Promise<Observable<FindOneProductResponse>> {
     return this.svc.findOne({ id });
   }
 }

@@ -54,7 +54,6 @@ export class CategoryController implements OnModuleInit {
   }
 
   @Get(':id')
-  @UseGuards(AuthGuard)
   private async findOne(
     @Param('id', ParseIntPipe) id: number,
   ): Promise<Observable<FindOneCategoryResponse>> {
@@ -62,7 +61,6 @@ export class CategoryController implements OnModuleInit {
   }
 
   @Get()
-  @UseGuards(AuthGuard)
   private async findAll(): Promise<Observable<FindAllCategoriesResponse>> {
     return this.svc.findAll({});
   }

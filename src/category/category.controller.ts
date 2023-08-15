@@ -9,6 +9,7 @@ import {
   Post,
   Body,
   Patch,
+  Query,
 } from '@nestjs/common';
 import { ClientGrpc } from '@nestjs/microservices';
 import { Observable } from 'rxjs';
@@ -22,6 +23,9 @@ import {
   UpdateCategoryRequest,
 } from '../pb/category.pb';
 import { AuthGuard } from '../auth/guard/auth.guard';
+import { QueryTransformPipe } from 'src/dto/query-transform.pipe';
+import { QueryCategoriesDto } from 'src/dto/category-query.dto';
+import { ProductQueries } from 'src/pb/product.pb';
 
 @Controller('category')
 export class CategoryController implements OnModuleInit {
@@ -58,6 +62,40 @@ export class CategoryController implements OnModuleInit {
     @Param('id', ParseIntPipe) id: number,
   ): Promise<Observable<FindOneCategoryResponse>> {
     return this.svc.findOne({ id });
+  }
+
+  @Get('slug/:headSlug/:subHeadSlug?/:categorySlug?')
+  private async findOneBySlugs(
+    @Param('headSlug') headSlug: string,
+    @Param('subHeadSlug') subHeadSlug?: string,
+    @Param('categorySlug') categorySlug?: string,
+    @Query(new QueryTransformPipe<QueryCategoriesDto>())
+    query?: QueryCategoriesDto,
+  ): Promise<Observable<FindOneCategoryResponse>> {
+    const { sortBy, sortOrder, limit, page } = query;
+    const productQueries: ProductQueries = {
+      sort: { sortBy, sortOrder },
+      pagination: { limit, page },
+    };
+    if (categorySlug && subHeadSlug) {
+      return this.svc.findOneByCategorySlug({
+        headSlug,
+        subHeadSlug,
+        categorySlug,
+        productQueries,
+      });
+    } else if (subHeadSlug) {
+      return this.svc.findOneBySubHeadSlug({
+        headSlug,
+        subHeadSlug,
+        productQueries,
+      });
+    } else {
+      return this.svc.findOneByHeadSlug({
+        headSlug,
+        productQueries,
+      });
+    }
   }
 
   @Get()

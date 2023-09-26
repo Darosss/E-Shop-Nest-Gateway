@@ -9,3 +9,7 @@ This repository is a gateway for these microservices:
 Shared proto for these:
 
 - https://github.com/Darosss/E-Shop-Nest-Proto
+
+Frontend implementation:
+
+- https://github.com/Darosss/E-Shop-Nest-Morele-Clone

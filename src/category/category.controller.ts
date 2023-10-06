@@ -25,7 +25,7 @@ import {
 import { AuthGuard } from '../auth/guard/auth.guard';
 import { QueryTransformPipe } from 'src/dto/query-transform.pipe';
 import { QueryCategoriesDto } from 'src/dto/category-query.dto';
-import { ProductQueries } from 'src/pb/product.pb';
+import { Queries } from 'src/pb/pagination.pb';
 
 @Controller('category')
 export class CategoryController implements OnModuleInit {
@@ -73,7 +73,7 @@ export class CategoryController implements OnModuleInit {
     query?: QueryCategoriesDto,
   ): Promise<Observable<FindOneCategoryResponse>> {
     const { sortBy, sortOrder, limit, page } = query;
-    const productQueries: ProductQueries = {
+    const productQueries: Queries = {
       sort: { sortBy, sortOrder },
       pagination: { limit, page },
     };

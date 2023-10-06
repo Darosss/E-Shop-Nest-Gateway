@@ -21,7 +21,7 @@
     "proto:install": "npm i git+https://github.com/Darosss/E-Shop-Nest-Proto.git",
     "proto:auth": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto.cmd -I=./node_modules/e-shop-nest-proto/proto --ts_proto_out=src/pb node_modules/e-shop-nest-proto/proto/auth.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
     "proto:order": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto.cmd -I=./node_modules/e-shop-nest-proto/proto --ts_proto_out=src/pb node_modules/e-shop-nest-proto/proto/order.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
-    "proto:product": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto.cmd -I=./node_modules/e-shop-nest-proto/proto --ts_proto_out=src/pb node_modules/e-shop-nest-proto/proto/product.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
+    "proto:product": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto.cmd -I=./node_modules/e-shop-nest-proto/proto --ts_proto_out=src/pb node_modules/e-shop-nest-proto/proto/product-property.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
     "proto:category": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto.cmd -I=./node_modules/e-shop-nest-proto/proto --ts_proto_out=src/pb node_modules/e-shop-nest-proto/proto/category.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
     "proto:all": "npm run proto:auth && npm run proto:order && npm run proto:product && npm run proto:category"
   },

@@ -22,7 +22,7 @@ import {
 } from '../pb/product.pb';
 import { AuthGuard } from '../auth/guard/auth.guard';
 
-@Controller('product')
+@Controller()
 export class ProductController implements OnModuleInit {
   private svc: ProductServiceClient;
 

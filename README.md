@@ -25,6 +25,10 @@ This repository houses the gateway service for our e-commerce shop system, which
     - PostgreSQL 15.3
     - NodeJS v20.6.1
 
+### Configuration
+
+The app requires several environment variables to be set in the .env file. You can use the .env.example (should be in root directory) file as a template.
+
 ### Installation
 
 ```

@@ -13,7 +13,7 @@ import { ProductPropertyModule } from './product-property/product-property.modul
         name: PRODUCT_SERVICE_NAME,
         transport: Transport.GRPC,
         options: {
-          url: '0.0.0.0:50053',
+          url: '0.0.0.0:50100',
           package: [PRODUCT_PACKAGE_NAME],
           protoPath: 'node_modules/e-shop-nest-proto/proto/product.proto',
         },

@@ -5,6 +5,7 @@ import {
   PROPERTY_CATEGORIES_SERVICE_NAME,
   PROPERTY_CATEGORY_PACKAGE_NAME,
 } from 'src/pb/property-category.pb';
+import { PROPERTY_CATEGORY_MICROSERVICE_URL } from 'src/configs';
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import {
         name: PROPERTY_CATEGORIES_SERVICE_NAME,
         transport: Transport.GRPC,
         options: {
-          url: '0.0.0.0:50101',
+          url: PROPERTY_CATEGORY_MICROSERVICE_URL,
           package: [PROPERTY_CATEGORY_PACKAGE_NAME],
           protoPath:
             'node_modules/e-shop-nest-proto/proto/property-category.proto',

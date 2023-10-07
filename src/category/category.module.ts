@@ -5,6 +5,7 @@ import {
   CATEGORY_SERVICE_NAME,
 } from '../pb/category.pb';
 import { CategoryController } from './category.controller';
+import { CATEGORY_MICROSERVICE_URL } from 'src/configs';
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import { CategoryController } from './category.controller';
         name: CATEGORY_SERVICE_NAME,
         transport: Transport.GRPC,
         options: {
-          url: '0.0.0.0:50054',
+          url: CATEGORY_MICROSERVICE_URL,
           package: CATEGORY_PACKAGE_NAME,
           protoPath: 'node_modules/e-shop-nest-proto/proto/category.proto',
         },

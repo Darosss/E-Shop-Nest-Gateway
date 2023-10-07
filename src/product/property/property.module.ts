@@ -5,6 +5,7 @@ import {
   PROPERTY_SERVICE_NAME,
   PROPERTY_PACKAGE_NAME,
 } from 'src/pb/property.pb';
+import { PROPERTY_MICROSERVICE_URL } from 'src/configs';
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import {
         name: PROPERTY_SERVICE_NAME,
         transport: Transport.GRPC,
         options: {
-          url: '0.0.0.0:50103',
+          url: PROPERTY_MICROSERVICE_URL,
           package: [PROPERTY_PACKAGE_NAME],
           protoPath: 'node_modules/e-shop-nest-proto/proto/property.proto',
         },
